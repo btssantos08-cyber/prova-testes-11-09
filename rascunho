@@ -1,0 +1,16 @@
+import sqlite3
+import unittest
+
+def tabela_aluno ( nome_banco = 'escola.db'):
+     
+    conn = sqlite3.connect(nome_banco)
+
+    cursor = conn.cursor()
+
+    cursor.execute (''' (CREATE TABLE IF NOT EXISTS
+                        id INTEGER PRIMARY KEY AUTOINCREMENT,
+                        nome TEXT NOT NULL,
+                        idade INTEGER NOT NULL,
+                        nota REAL)''')
+    conn.commit ()
+    conn.close()
